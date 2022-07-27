@@ -1,4 +1,4 @@
-import { join } from 'path'
+import { join } from 'node:path'
 import { JsonDB } from 'node-json-db'
 import { Config } from 'node-json-db/dist/lib/JsonDBConfig'
 import { sendFeedback, writeData } from '../utils'

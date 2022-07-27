@@ -1,4 +1,4 @@
-# Blog - server
+# Blog - server API
 
 ## Config .env
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import fs from 'fs'
+import fs from 'node:fs'
 import hasha from 'hasha'
 import argon2 from 'argon2'
 import {
