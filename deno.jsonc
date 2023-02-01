@@ -1,0 +1,48 @@
+{
+  "tasks": {
+    "start": "deno run --watch --lock=deno.lock --cached-only --allow-net --allow-read --allow-env ./src/index.ts",
+    "format": "deno fmt ./src",
+    "lint": "deno lint ./src",
+    "compile": "deno compile --target x86_64-unknown-linux-gnu --allow-net --allow-read --allow-env --output ./dist/server ./src/index.ts",
+    "update-deps": "deno cache --lock=deno.lock --lock-write src/deps.ts"
+  },
+  "compilerOptions": {
+    "allowJs": false,
+    "strict": true,
+    "lib": ["deno.window"],
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": true
+  },
+  "lint": {
+    "files": {
+      "include": ["src/"]
+    },
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": ["no-unused-vars"]
+    },
+    "report": "compact"
+  },
+  "fmt": {
+    "files": {
+      "include": ["src/"]
+    },
+    "options": {
+      "useTabs": false,
+      "lineWidth": 80,
+      "indentWidth": 2,
+      "singleQuote": true
+    }
+  },
+  "test": {
+    "files": {
+      "include": ["src/tests"]
+    }
+  }
+}
