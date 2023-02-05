@@ -1,4 +1,4 @@
-import { config } from "./deps.ts";
+import { config } from './deps.ts';
 
 const configData = await config();
 
@@ -15,8 +15,8 @@ const status = {
 
 export default {
   status,
-  port: +configData["PORT"] ?? 8_000,
-  authorsDbPath: configData["AUTHORS_DB_PATH"],
-  blogDbPath: configData["BLOG_DB_PATH"],
-  postsDir: configData["POSTS_DIR_PATH"],
+  port: +configData['PORT'] ?? 8_000,
+  authorsDbPath: configData['AUTHORS_DB_PATH'],
+  blogDbPath: configData['BLOG_DB_PATH'],
+  postsDir: configData['POSTS_DIR_PATH'],
 };

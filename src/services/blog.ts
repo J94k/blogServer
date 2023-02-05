@@ -1,7 +1,7 @@
-import db from "../db/db.ts";
+import db from '../db/db.ts';
 
 const getAllPostPreviews = async (): Promise<Record<string, unknown>> => {
-  const data = await db.authors.get("*");
+  const data = await db.authors.get('*');
   let allPostPreviews: Record<string, unknown> = {};
 
   Object.values(data).forEach(({ postPreviews }) => {
@@ -12,7 +12,7 @@ const getAllPostPreviews = async (): Promise<Record<string, unknown>> => {
 };
 
 const getAllPosts = async (): Promise<Record<string, unknown>> => {
-  const data = await db.authors.get("*");
+  const data = await db.authors.get('*');
   let allPosts: Record<string, unknown> = {};
 
   Object.values(data).forEach(({ posts }) => {
@@ -27,7 +27,7 @@ const getPost = async (id: string): Promise<string> => {
 };
 
 const getAllAuthors = async (): Promise<Record<string, unknown>[]> => {
-  const data = await db.authors.get("*");
+  const data = await db.authors.get('*');
   const authors: Record<string, unknown>[] = [];
 
   Object.keys(data).forEach((nickname) => {
@@ -41,7 +41,7 @@ const getAllAuthors = async (): Promise<Record<string, unknown>[]> => {
 };
 
 const getAllTags = async (): Promise<string[]> => {
-  const tags = await db.blog.get("tags");
+  const tags = await db.blog.get('tags');
 
   return tags;
 };
