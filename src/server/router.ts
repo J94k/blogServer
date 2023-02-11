@@ -13,13 +13,6 @@ router
     ctx.response.status = status.success;
     ctx.response.headers.set('content-type', 'application/json; charset=utf-8');
   })
-  // .get("/posts", async (ctx) => {
-  //   const posts = await blog.getAllPosts();
-
-  //   ctx.response.body = JSON.stringify(posts);
-  //   ctx.response.status = status.success;
-  //   // ctx.response.headers.set("content-type", "application/json; charset=utf-8");
-  // })
   .get('/post/:id', async (ctx) => {
     const { id } = ctx.params;
     const post = await blog.getPost(id);
