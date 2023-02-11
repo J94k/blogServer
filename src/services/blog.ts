@@ -1,5 +1,16 @@
 import db from '../db/db.ts';
 
+const getAllPostPreviews = async (): Promise<Record<string, unknown>> => {
+  const data = await db.authors.get('*');
+  let allPostPreviews: Record<string, unknown> = {};
+
+  Object.values(data).forEach(({ postPreviews }) => {
+    allPostPreviews = { ...allPostPreviews, ...postPreviews };
+  });
+
+  return allPostPreviews;
+};
+
 const getAllPosts = async (): Promise<Record<string, unknown>> => {
   const data = await db.authors.get('*');
   let allPosts: Record<string, unknown> = {};
@@ -9,6 +20,10 @@ const getAllPosts = async (): Promise<Record<string, unknown>> => {
   });
 
   return allPosts;
+};
+
+const getPost = async (id: string): Promise<string> => {
+  return await db.authors.getPost(id);
 };
 
 const getAllAuthors = async (): Promise<Record<string, unknown>[]> => {
@@ -32,7 +47,9 @@ const getAllTags = async (): Promise<string[]> => {
 };
 
 export default {
+  getAllPostPreviews,
   getAllPosts,
+  getPost,
   getAllAuthors,
   getAllTags,
 };
